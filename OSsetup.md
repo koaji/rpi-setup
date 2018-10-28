@@ -27,18 +27,19 @@ Raspberry pi の本体設定を変更します．
 __このときraspi-configを終了しないでください．__
 1. ContolキーとAltキーとF2キーで端末を切り替え(tty2)にし，ログインできるか確認をしてください．<br>ログインできれば`exit`コマンドを実行し端末を閉じてください．<br>
 もし，`Login incorrect`と表示され，ログインできない場合はパスワードを誤って設定している可能性があります．<br>
-この場合はContolキーとAltキーとF2キーで端末を切り替え，設定し直してください．
-1. ContolキーとAltキーとF2キーで端末を切り替え，次のセクションの設定をしてください．
+この場合はContolキーとAltキーとF1キーで端末を切り替え，設定し直してください．
+1. ContolキーとAltキーとF1キーで端末を切り替え，次のセクションの設定をしてください．
 
 #### ホスト名の変更
 1. 矢印キーでメニューにある`2 Network Options`を選択し，Enter.
-1. `N1 Hostname`を選択肢，Enter．
+1. `N1 Hostname`を選択し，Enter．
 1. 下記にホスト名の設定する上での説明があるので，`<Ok>`を選択し，Enter．
 > Please note: RFCs mandate that a hostname's labels may contain only the ASCII letters 'a' through 'z' (case-insensitive), the digits '0' through '9', and the hyphen.<br>
 > Hostname the labels cannot begin or end with a hypen.<br>
 > No other symbols, punctuation characters, or blank spaces are permitted.<br>
-1. `Please enter a hostname`と表示され，ホスト名を入力してください．
-1. `Would you like to reboot now?`と表示され，`<Yes>`を選択し，Enter．<br>
+1. `Please enter a hostname`と表示されますので，ホスト名を入力してください．
+1. `Would you like to reboot now?`と表示されますので，`<Yes>`を選択し，Enter．<br>
+(ホスト名を有効化するためです．)<br>
 再起動が始まります．
 
 
@@ -54,7 +55,7 @@ ja_JP.UTF-8 UTF-8 ;新たに選択
 ```
 選択が終われば，Tabキーでリストから離れ，`<Ok>`を選択し，Enter.
 1.  `Default locale for the system environment :`と表示されれば，`en_GB.UTF-8`を選択しEnter．
-1. `Generating locales (this might take a while)...`と表示され生成されます．<br>`Generation Complete`になると完了し，数秒後メニュー画面に戻ります．
+1. `Generating locales (this might take a while)...`と表示され，生成されます．<br>`Generation Complete`になると完了し，数秒後メニュー画面に戻ります．
 
 ##### 時刻設定の変更
 1. 矢印キーで`I2 Change Timezone`を選択し，Enter．
@@ -109,8 +110,10 @@ __次回起動時，`Resize the root filesystem to fill partition`と表示さ�
 1. Contolキーとxキーを同時に押し，エディタを終了します．
 
 ##### 誤って編集した場合
-`visudo`コマンドはエディタで編集を終了したあと，文法のチェックが行われます．このときに，文法時誤りがあると指摘してくれます．<br>
-例えば１行目に文法的誤りがあると下記のように表示されます．` >>> /etc/suders: syntax error near line 1 <<< ` <br>ここで，Enterキーを押すと，操作一覧が表示されます．
+`visudo`コマンドはエディタで編集を終了したあと，文法のチェックが行われます．このときに，文法的誤りがあると指摘してくれます．<br>
+例えば１行目に文法的誤りがあると下記のように表示されます．<br>
+` >>> /etc/suders: syntax error near line 1 <<< ` <br>
+ここで，Enterキーを押すと，操作一覧が表示されます．
 ```
 Options are:
  (e)dit sudoers file again
