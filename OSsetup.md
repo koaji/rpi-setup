@@ -130,5 +130,41 @@ Options are:
 1. `sudo passwd -l root`を実行し，rootユーザをロック
 1. `passwd: password expiry information changed.`と表示されたら，変更完了．
 
+### ネットワーク接続の確認
+1. `ifconfing`でネットワークに接続されているインターフェイスが`... state UP ...`となっているか確認してください．`... state DOWN ...`となっている場合は，ネットワーク接続を確認してください．
+```
+1: lo:...
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000 ...
+```
+### パッケージのアップデート
+#### パッケージリストのアップデート
+1. `sudo apt update`を実行して，パッケージリストをアップデートしてください．
 
-
+#### ファイアウォールの一時的な設定
+__外部からの通信要求は遮断されます．必要に応じて設定を変更してください．__
+1. `sudo apt install ufw -y`を実行して，`ufw`をインストールしてください．
+1. `sudo ufw status verbose`を実行すると，`Status: inactive` と表示されます．初期状態ですので，有効化されていないことが確認できます．
+1. `sudo default deny`を実行して，標準を拒否設定にします．`Default incoming policy changed to 'deny'`と表示されます．
+1. `sudo ufw enable`を実行し，`ufw`を有効化します．このとき`Fairewall is active and enabled on system startup`と表示され，起動時に自動有効化されます．
+1. `sudo ufw status verbose`を実行して，`Status: active`になっているか確認してください．
+1. `sudo service ufw restart`で，デーモンを再読み込みし，システムに適用してください．
+```
+pi@raspberrypi:~ $ sudo apt update
+;メッセージが続き，しばらく待機
+pi@raspberrypi:~ $ sudo apt install ufw -y
+;メッセージが続き，しばらく待機
+pi@raspberrypi:~ $ sudo ufw status verbose
+Status: inactive
+pi@raspberrypi:~ $ sudo default deny
+Default incoming policy changed to 'deny'
+pi@raspberrypi:~ $ sudo ufw enable
+Fairewall is active and enabled on system startup
+pi@raspberrypi:~ $ sudo ufw status verbose
+Status: active
+Logging: on (lod)
+Default: deny (incoming). allow (outgoing), disabled (routed)
+New profiles: skip
+pi@raspberrypi:~ $ sudo service ufw restart
+```
+#### パッケージアップグレード
+1. `sudo apt upgarde -y`を実行し，アップデートをしてください．これには少々時間がかかります．
