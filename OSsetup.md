@@ -106,6 +106,8 @@ __次回起動時，`Resize the root filesystem to fill partition`と表示さ�
 1. `sudo visudo`コマンドを実行する．
 1. デフォルトのエディタ(おそらく nano)で，sudoersファイルが開き，設定を編集できます．
 1. `# User privilege specification`で，`pi ALL=(ALL:ALL) ALL`を追記します．
+1. `root ALL=(ALL:ALL) ALL`をコメントアウト(先頭行に`#`を挿入)してください．
+つまり，`# root ALL=(ALL:ALL) ALL`になります．
 1. Contolキーとoキーを同時に押し，上書きします．
 1. Contolキーとxキーを同時に押し，エディタを終了します．
 
@@ -113,7 +115,7 @@ __次回起動時，`Resize the root filesystem to fill partition`と表示さ�
 `visudo`コマンドはエディタで編集を終了したあと，文法のチェックが行われます．このときに，文法的誤りがあると指摘してくれます．<br>
 例えば１行目に文法的誤りがあると下記のように表示されます．<br>
 ` >>> /etc/suders: syntax error near line 1 <<< ` <br>
-ここで，Enterキーを押すと，操作一覧が表示されます．
+操作コマンドは以下の通りです．
 ```
 Options are:
  (e)dit sudoers file again
@@ -132,6 +134,12 @@ Options are:
 #### rootユーザのログイン禁止
 1. `sudo passwd -l root`を実行し，rootユーザをロック
 1. `passwd: password expiry information changed.`と表示されたら，変更完了．
+
+#### パスワードなしsudoの無効化
+1. `cd /etc/sudoers.d/`を実行し，移動してください．
+1. `sudo rm -i 010_pi-nopasswd`を実行し，ファイルを削除してください．<br>
+このとき`rm: remove regular file '010_pi-nopasswd'?`と聞かれるので，`y`を入力し，Enter.
+
 
 ### ネットワーク接続の確認
 1. `ifconfing`でネットワークに接続されているインターフェイスが`... state UP ...`となっているか確認してください．`... state DOWN ...`となっている場合は，ネットワーク接続を確認してください．
