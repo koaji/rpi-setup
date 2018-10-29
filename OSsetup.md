@@ -164,7 +164,7 @@ pi@raspberrypi:~ $ sudo ufw enable
 Fairewall is active and enabled on system startup
 pi@raspberrypi:~ $ sudo ufw status verbose
 Status: active
-Logging: on (lod)
+Logging: on (low)
 Default: deny (incoming). allow (outgoing), disabled (routed)
 New profiles: skip
 pi@raspberrypi:~ $ sudo service ufw restart
