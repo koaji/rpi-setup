@@ -166,7 +166,7 @@ pi@raspberrypi:~ $ sudo apt install ufw -y
 ;メッセージが続き，しばらく待機
 pi@raspberrypi:~ $ sudo ufw status verbose
 Status: inactive
-pi@raspberrypi:~ $ sudo default deny
+pi@raspberrypi:~ $ sudo ufi default deny
 Default incoming policy changed to 'deny'
 pi@raspberrypi:~ $ sudo ufw enable
 Fairewall is active and enabled on system startup
